@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applied</title>
+    <style>
+      table {
+        background-color: aqua;
+        margin: 20px;
+        padding: 10px;
+      }
+      td {
+        background-color: rgb(250, 157, 157);
+        margin-left: 100px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="liks">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmark</a></div>
+    </div>
+
+    <select name="" id="sortName">
+      <option value="">sort by names</option>
+      <option value="Ascending">Ascending</option>
+      <option value="Descending">descending</option>
+    </select>
+
+    <select name="" id="filterRole">
+      <option value="">Filter Job role</option>
+      <option value="Backend">Backend</option>
+      <option value="Frontend">Frontend</option>
+      <option value="FSD">FSD</option>
+    </select>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job Applied</th>
+            <th>Salary Expected</th>
+            <th>Add to bookmark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- COde from LOcalstorage -->
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
+<script src="/jobApp/applied.js"></script>

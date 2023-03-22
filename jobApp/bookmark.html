@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark</title>
+    <style>
+      table {
+        background-color: aqua;
+        margin: 20px;
+        padding: 10px;
+      }
+      td {
+        background-color: rgb(250, 157, 157);
+        margin-left: 100px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="liks">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmark</a></div>
+    </div>
+
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job Applied</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="body"></tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    let bookmarkData = JSON.parse(localStorage.getItem("bookObj")) || [];
+    displayTable(bookmarkData);
+    function displayTable(bookmarkData) {
+      document.querySelector("tbody").innerHTML = "";
+      bookmarkData.forEach(function (ele, index) {
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        td1.innerText = ele.personName;
+        let td2 = document.createElement("td");
+        td2.innerText = ele.personEmail;
+        let td3 = document.createElement("td");
+        td3.innerText = ele.personRole;
+        let td4 = document.createElement("td");
+        td4.innerText = "Delete";
+        td4.style.color = "red";
+        td4.addEventListener("click", function () {
+          deleteBookmark(ele, index);
+        });
+        tr.append(td1, td2, td3, td4);
+        document.querySelector("tbody").append(tr);
+      });
+    }
+    function deleteBookmark(ele, index) {
+      bookmarkData.splice(index, 1);
+      console.log(bookmarkData);
+      localStorage.setItem("bookObj", JSON.stringify(bookmarkData));
+      displayTable(bookmarkData);
+    }
+  </script>
+</html>
